@@ -20,6 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# TODO: Move to environment variable in production
 SECRET_KEY = 'django-insecure-asb=jjm7h2a#%rq2wp#)$l(b)1p)(8h+@b-u+v(dn)qif4r)wc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -143,7 +144,7 @@ CORS_ALLOW_CREDENTIALS = True
 # REST Framework Settings
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.AllowAny',  # TODO: Add authentication in production
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 50,
