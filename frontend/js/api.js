@@ -7,7 +7,8 @@ const api = {
     async getBooks() {
         try {
             const response = await fetch(`${API_BASE_URL}/bible/books/`);
-            return await response.json();
+            const data = await response.json();
+            return data.results || data; // Handle paginated response
         } catch (error) {
             console.error('Error fetching books:', error);
             return [];
@@ -27,7 +28,8 @@ const api = {
     async getVerses(bookId, chapter) {
         try {
             const response = await fetch(`${API_BASE_URL}/bible/verses/?book=${bookId}&chapter=${chapter}`);
-            return await response.json();
+            const data = await response.json();
+            return data.results || data; // Handle paginated response
         } catch (error) {
             console.error('Error fetching verses:', error);
             return [];
@@ -48,7 +50,8 @@ const api = {
     async getHighlights() {
         try {
             const response = await fetch(`${API_BASE_URL}/bible/highlights/`);
-            return await response.json();
+            const data = await response.json();
+            return data.results || data; // Handle paginated response
         } catch (error) {
             console.error('Error fetching highlights:', error);
             return [];
@@ -87,7 +90,8 @@ const api = {
     async getNotes() {
         try {
             const response = await fetch(`${API_BASE_URL}/bible/notes/`);
-            return await response.json();
+            const data = await response.json();
+            return data.results || data; // Handle paginated response
         } catch (error) {
             console.error('Error fetching notes:', error);
             return [];
@@ -131,7 +135,8 @@ const api = {
     async getReadingPlans() {
         try {
             const response = await fetch(`${API_BASE_URL}/reading/plans/`);
-            return await response.json();
+            const data = await response.json();
+            return data.results || data; // Handle paginated response
         } catch (error) {
             console.error('Error fetching reading plans:', error);
             return [];
