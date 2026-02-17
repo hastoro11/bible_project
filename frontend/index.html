@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Reading App</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Bible Reading App</h1>
+            <nav class="nav">
+                <button id="readerBtn" class="nav-btn active">Reader</button>
+                <button id="searchBtn" class="nav-btn">Search</button>
+                <button id="plansBtn" class="nav-btn">Reading Plans</button>
+            </nav>
+        </header>
+
+        <!-- Reader Section -->
+        <section id="readerSection" class="section active">
+            <div class="controls">
+                <select id="bookSelect" class="control-select">
+                    <option value="">Select Book...</option>
+                </select>
+                <select id="chapterSelect" class="control-select">
+                    <option value="">Select Chapter...</option>
+                </select>
+                <label class="control-label">
+                    <input type="checkbox" id="verseNumberToggle" checked>
+                    Show Verse Numbers
+                </label>
+            </div>
+            
+            <div id="verseContainer" class="verse-container"></div>
+            
+            <!-- Highlight Colors -->
+            <div id="highlightPalette" class="highlight-palette hidden">
+                <button class="color-btn" data-color="yellow">Yellow</button>
+                <button class="color-btn" data-color="green">Green</button>
+                <button class="color-btn" data-color="blue">Blue</button>
+                <button class="color-btn" data-color="pink">Pink</button>
+                <button class="color-btn" data-color="orange">Orange</button>
+                <button class="color-btn remove" data-color="">Remove</button>
+            </div>
+            
+            <!-- Note Modal -->
+            <div id="noteModal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Add Note</h2>
+                    <textarea id="noteText" placeholder="Enter your note here..." rows="5"></textarea>
+                    <button id="saveNoteBtn" class="btn-primary">Save Note</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section id="searchSection" class="section">
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search Bible verses...">
+                <button id="searchButton" class="btn-primary">Search</button>
+            </div>
+            <div id="searchResults" class="search-results"></div>
+        </section>
+
+        <!-- Reading Plans Section -->
+        <section id="plansSection" class="section">
+            <div class="plans-header">
+                <h2>Reading Plans</h2>
+                <button id="createPlanBtn" class="btn-primary">Create Plan</button>
+            </div>
+            <div id="plansContainer" class="plans-container"></div>
+            
+            <!-- Plan Details Modal -->
+            <div id="planModal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="planTitle">Plan Details</h2>
+                    <div id="planContent"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/reader.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/plans.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
